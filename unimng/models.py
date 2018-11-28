@@ -58,7 +58,7 @@ class Classroom(models.Model):
     building = models.CharField(max_length=1)
 
     def __str__(self):
-        return self.descr
+        return 'Building ' + self.building + ', ' + self.descr
 
 # Profesores/Maestros
 
@@ -86,3 +86,6 @@ class Schedule(models.Model):
     period = models.ForeignKey(Period, on_delete=models.CASCADE)
     time_block = models.ForeignKey(Time_Block, on_delete=models.CASCADE)
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.professor.first_name + ' ' + self.professor.last_name + ' - ' + self.time_block.descr
