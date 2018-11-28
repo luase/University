@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="title">
+    Courses
+  </div>
+  {% if course_list %}
+  <div class="sub-container">
+    <div class="sub-title">
+      Avialable courses
+    </div>
+    <div class="list">
+      {% for course in course_list %}
+      {% if course.schedule.count %}
+      <li>{{course}}</li>
+      {% else %}
+      {% endif%}
+      {% endfor %}
+    </div>
+    <div class="sub-title">
+      All courses
+    </div>
+    <div class="list">
+      {% for course in course_list %}
+      <li>{{course}}</li>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <div class="sub-title">
+    No courses avialable!
+  </div>
+  {% endif %}
+</div>

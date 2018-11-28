@@ -66,7 +66,8 @@ class Classroom(models.Model):
 class Professor(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    department = models.ForeignKey(
+        Department, on_delete=models.CASCADE, related_name='members')
     username = models.CharField(max_length=20)
     user_passw = models.CharField(max_length=25)
     is_administrator = models.BooleanField(default=False)
@@ -81,11 +82,16 @@ class Schedule(models.Model):
     class Meta:
         unique_together = (
             ('professor', 'course', 'period', 'time_block', 'classroom'))
-    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    period = models.ForeignKey(Period, on_delete=models.CASCADE)
-    time_block = models.ForeignKey(Time_Block, on_delete=models.CASCADE)
-    classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
+    professor = models.ForeignKey(
+        Professor, on_delete=models.CASCADE, related_name='schedule')
+    course = models.ForeignKey(
+        Course, on_delete=models.CASCADE, related_name='schedule')
+    period = models.ForeignKey(
+        Period, on_delete=models.CASCADE, related_name='schedule')
+    time_block = models.ForeignKey(
+        Time_Block, on_delete=models.CASCADE, related_name='schedule')
+    classroom = models.ForeignKey(
+        Classroom, on_delete=models.CASCADE, related_name='schedule')
 
     def __str__(self):
         return self.professor.first_name + ' ' + self.professor.last_name + ' - ' + self.time_block.descr
