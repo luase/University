@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Departamento
 
@@ -95,3 +96,10 @@ class Schedule(models.Model):
 
     def __str__(self):
         return self.professor.first_name + ' ' + self.professor.last_name + ' - ' + self.time_block.descr
+
+    def is_currently_available(self):
+        now = timezone.now()
+        return self.period.begin_date <= now <= self.period.end_date
+
+    is_currently_available.boolean = True
+    is_currently_available.short_description = 'Currently available?'
