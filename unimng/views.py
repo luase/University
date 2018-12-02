@@ -8,6 +8,8 @@ from .models import Professor, Department, Course, Period, Time_Block, Classroom
 
 # Create your views here.
 
+# view para el indice o la primer pagina
+
 
 class IndexView(generic.ListView):
     template_name = 'unimng/index.html'
@@ -15,3 +17,27 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         return Course.objects.all()
+
+# view para los cursos
+
+
+class CourseView(generic.DetailView):
+    model = Course
+    template_name = 'unimng/course.html'
+
+# view para los professores
+
+
+class ProfessorList(generic.ListView):
+    template_name = 'unimng/professors.html'
+    context_object_name = 'professor_list'
+
+    def get_queryset(self):
+        return Professor.objects.all()
+
+# detail view para los profesores
+
+
+class ProfessorDetail(generic.DetailView):
+    model = Professor
+    template_name = 'unimng/professor.html'

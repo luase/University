@@ -7,9 +7,15 @@ urlpatterns = [
     # ex: /unimgn/
     path('', views.IndexView.as_view(), name='index'),
 
-    # # ex: /events/user/23
-    # path('user/<int:pk>/', views.UserView.as_view(), name='user'),
-    #
+    # ex: /unimgn/course/5
+    path('course/<int:pk>/', views.CourseView.as_view(), name='course'),
+
+    # ex: /unimgn/professor
+    path('professor/', views.ProfessorList.as_view(), name='professors'),
+
+    # ex: /unimng/professor/3
+    path('professor/<int:pk>/', views.ProfessorDetail.as_view(), name='professor'),
+
     # # ex: /events/user/23/followers
     # path('user/<int:pk>/followers',
     #      views.UserViewFollowers.as_view(), name='user_followers'),

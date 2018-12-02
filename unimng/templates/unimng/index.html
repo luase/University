@@ -1,32 +1,35 @@
 <div class="container">
   <div class="title">
-    Courses
+    UNIVERSITY MANAGEMENT
   </div>
-  {% if course_list %}
   <div class="sub-container">
+    {% if course_list %}
     <div class="sub-title">
-      Avialable courses
+      avialable courses
     </div>
     <div class="list">
       {% for course in course_list %}
       {% if course.schedule.count %}
-      <li>{{course}}</li>
+      <li><a href="{% url 'unimng:course' course.id %}">{{course}}</a></li>
       {% else %}
       {% endif%}
       {% endfor %}
     </div>
     <div class="sub-title">
-      All courses
+      all courses
     </div>
     <div class="list">
       {% for course in course_list %}
-      <li>{{course}}</li>
+      <li><a href="{% url 'unimng:course' course.id %}">{{course}}</a></li>
       {% endfor %}
     </div>
+    {% else %}
+    <div class="sub-title">
+      no courses avialable!
+    </div>
+    {% endif %}
   </div>
-  {% else %}
-  <div class="sub-title">
-    No courses avialable!
+  <div class="nav-button">
+    <a href="{% url 'unimng:professors' %}">professors</a>
   </div>
-  {% endif %}
 </div>
