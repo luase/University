@@ -11,7 +11,7 @@
     </div>
     <div class="list">
       {% for course in course_list %}
-      {% if course.schedule.is_currently_available %}
+      {% if course.schedule.all.count %}
       <li><a href="{% url 'unimng:course' course.id %}">{{course}}</a></li>
       {% else %}
       {% endif%}
