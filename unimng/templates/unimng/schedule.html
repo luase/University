@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="title">
+    {{ schedule.course }}
+  </div>
+  <div class="sub-container">
+    <div class="sub-title">
+      details
+    </div>
+    <div class="detail">
+      <strong>time block</strong> {{schedule.time_block}}<br>
+      <strong>professor</strong> <a href="{% url 'unimng:professor' schedule.professor.id %}">{{schedule.professor}}</a> <br>
+      <strong>course</strong> <a href="{% url 'unimng:course' schedule.course.id %}">{{schedule.course}}</a> <br>
+      <strong>classroom</strong> {{ schedule.classroom }} <br>
+      <strong>period</strong> {{schedule.period}}
+    </div>
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:index' %}">home</a>
+  </div>
+</div>

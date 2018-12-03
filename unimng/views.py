@@ -41,3 +41,10 @@ class ProfessorList(generic.ListView):
 class ProfessorDetail(generic.DetailView):
     model = Professor
     template_name = 'unimng/professor.html'
+
+# detail view para los horarios
+
+
+class ScheduleDetail(generic.DetailView):
+    model = Schedule
+    template_name = 'unimng/schedule.html'

@@ -82,7 +82,7 @@ class Professor(models.Model):
 class Schedule(models.Model):
     class Meta:
         unique_together = (
-            ('professor', 'course', 'period', 'time_block', 'classroom'))
+            ('professor', 'period', 'time_block'))
     professor = models.ForeignKey(
         Professor, on_delete=models.CASCADE, related_name='schedule')
     course = models.ForeignKey(

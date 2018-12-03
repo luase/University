@@ -16,6 +16,9 @@ urlpatterns = [
     # ex: /unimng/professor/3
     path('professor/<int:pk>/', views.ProfessorDetail.as_view(), name='professor'),
 
+    # ex: /unimng/schedule/2
+    path('schedule/<int:pk>/', views.ScheduleDetail.as_view(), name='schedule'),
+
     # # ex: /events/user/23/followers
     # path('user/<int:pk>/followers',
     #      views.UserViewFollowers.as_view(), name='user_followers'),

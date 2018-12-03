@@ -19,8 +19,7 @@
     <div class="list">
       {% for schedule in course.schedule.all %}
       <li><a href=""></a>
-        schedule: {{schedule.time_block}} <br>
-        professor: <a href="{% url 'unimng:professor' schedule.professor.id %}">{{schedule.professor}}</a>
+        <a href="{% url 'unimng:schedule' schedule.id %}">{{schedule.time_block}} professor: {{schedule.professor}}</a>
       </li>
       {% endfor %}
     </div>
