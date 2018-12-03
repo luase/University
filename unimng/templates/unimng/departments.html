@@ -1,0 +1,31 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'unimng/style.css' %}">
+<div class="container">
+  <div class="title">
+    DEPARTMENTS
+  </div>
+  <div class="sub-container">
+    {% if department_list %}
+    <div class="sub-title">
+      department list
+    </div>
+    <p>Click on a department to see more details</p>
+    <div class="list">
+      {% for department in department_list %}
+      <li><a href="{% url 'unimng:department' department.id %}">{{ department }}</a></li>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="sub-title">
+      there's nothing here to show!
+    </div>
+    {% endif %}
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:index' %}">home</a>
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:professors' %}">professors</a>
+  </div>
+</div>

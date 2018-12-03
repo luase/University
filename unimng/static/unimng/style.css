@@ -1,0 +1,79 @@
+.nav-button {
+  background-color: rgb(146, 143, 112);
+  color: #333333;
+  padding: 5px 6px 5px 6px;
+  border-top: 3px solid #CCCCCC;
+  border-right: 3px solid #333333;
+  border-bottom: 3px solid #333333;
+  border-left: 3px solid #CCCCCC;
+  border-radius: 5px;
+}
+
+a {
+  color: rgb(12, 47, 87);
+}
+
+.container {
+  background: rgb(231, 234, 236);
+  border-radius: 5px;
+}
+
+.sub-container {
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+div {
+  margin: 1%;
+  padding: 1%;
+  border-width: 20%;
+}
+
+body {
+  background: rgb(255, 255, 255);
+}
+
+.title {
+  color: white;
+  font-size: 40px;
+  font-family: 'Trebuchet MS';
+  text-shadow: 0 2px 5px rgba(12, 47, 87, 0.781);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.sub-title {
+  font-size: 25px;
+  font-family: 'Arial, serif';
+  color: rgb(146, 143, 112);
+}
+
+.list {
+  color: rgb(12, 47, 87);
+}
+
+li {
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Trebuchet MS';
+}
+
+a:link {
+  color: rgb(12, 47, 87);
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(12, 47, 87);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(146, 143, 112);
+}
+
+/* selected link */
+a:active {
+  color: rgb(2, 31, 65);
+}

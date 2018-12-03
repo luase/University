@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'unimng/style.css' %}">
+<div class="container">
+  <div class="title">
+    {{ professor.first_name }}
+  </div>
+  <div class="sub-container">
+    <div class="sub-title">
+      details
+    </div>
+    <div class="detail">
+      <strong>name</strong> {{ professor }} <br>
+      <strong>department</strong> {{ professor.department }} <br>
+    </div>
+  </div>
+  <div class="sub-container">
+    <div class="sub-title">
+      currently teaching
+    </div>
+    {% if professor.schedule.all %}
+    <div class="list">
+      {% for schedule in professor.schedule.all %}
+      <li><a href="{% url 'unimng:course' schedule.course.id %}">{{schedule.course}}</a> on {{schedule.time_block}}</li>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="sub-title">
+      there's nothing here to show!
+    </div>
+    {% endif%}
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:index' %}" class="button">home</a>
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:professors' %}" class="button">professors</a>
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:departments' %}" class="button">departments</a>
+  </div>
+</div>
