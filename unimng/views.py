@@ -48,3 +48,20 @@ class ProfessorDetail(generic.DetailView):
 class ScheduleDetail(generic.DetailView):
     model = Schedule
     template_name = 'unimng/schedule.html'
+
+# view para los departamentos
+
+
+class DepartmentList(generic.ListView):
+    template_name = 'unimng/departments.html'
+    context_object_name = 'department_list'
+
+    def get_queryset(self):
+        return Department.objects.all()
+
+# detail view para los departamentos
+
+
+class DepartmentDetail(generic.DetailView):
+    model = Department
+    template_name = 'unimng/department.html'

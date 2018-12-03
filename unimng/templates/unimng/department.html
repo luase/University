@@ -1,17 +1,25 @@
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'unimng/style.css' %}">
 <div class="container">
   <div class="title">
-    PROFESSORS
+    {{ department }}
   </div>
   <div class="sub-container">
-    {% if professor_list %}
     <div class="sub-title">
-      professor list
+      details
     </div>
+    <div class="detail">
+      <strong>name</strong> {{ department }} <br>
+      <strong>professors</strong> {{ department.members.all.count }} <br>
+    </div>
+  </div>
+  <div class="sub-container">
+    <div class="sub-title">
+      professors assigned to the {{ department }} department
+    </div>
+    {% if department.members.all.count %}
     <div class="list">
-      {% for professor in professor_list %}
+      {% for professor in department.members.all %}
       <li><a href="{% url 'unimng:professor' professor.id %}">{{ professor }}</a></li>
       {% endfor %}
     </div>
@@ -19,10 +27,13 @@
     <div class="sub-title">
       there's nothing here to show!
     </div>
-    {% endif %}
+    {% endif%}
   </div>
   <div class="nav-button">
     <a href="{% url 'unimng:index' %}" class="button">home</a>
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:professors' %}" class="button">professors</a>
   </div>
   <div class="nav-button">
     <a href="{% url 'unimng:departments' %}" class="button">departments</a>

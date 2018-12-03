@@ -1,5 +1,4 @@
 {% load static %}
-
 <link rel="stylesheet" type="text/css" href="{% static 'unimng/style.css' %}">
 <div class="container">
   <div class="title">
@@ -30,6 +29,12 @@
   {% else %}
   {% endif%}
   <div class="nav-button">
-    <a href="{% url 'unimng:index' %}">home</a>
+    <a href="{% url 'unimng:index' %}" class="button">home</a>
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:professors' %}" class="button">professors</a>
+  </div>
+  <div class="nav-button">
+    <a href="{% url 'unimng:departments' %}" class="button">departments</a>
   </div>
 </div>
